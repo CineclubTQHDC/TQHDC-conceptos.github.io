@@ -52,9 +52,9 @@
         font-weight: regular;
         font-size: 3em;
         color: #f5dfc9;
-        margin-bottom: 20px;
+        margin: 20px 0 10px 0;
         opacity: 0;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.8s ease;
     }
 
     #imagen {
@@ -65,10 +65,10 @@
     }
 
     #download-btn {
-        margin-top: 30px;
+        margin-top: 20px;
         width: 80px;
         cursor: pointer;
-        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, opacity 0.8s ease;
         opacity: 0;
     }
     #download-btn:hover {
@@ -159,13 +159,17 @@
                 downloadLink.href = c.img;
                 imagenContainer.classList.remove("hidden");
 
-                // animaciones
+                // después animar el texto y botón
                 setTimeout(() => {
                     tituloConcepto.style.opacity = 1;
+                    downloadBtn.style.opacity = 1;
+                }, 0);
+
+                // primero animar la imagen
+                setTimeout(() => {
                     imagen.style.opacity = 1;
                     imagen.style.transform = "scale(1)";
-                    downloadBtn.style.opacity = 1;
-                }, 50);
+                }, 100);
             }
         }, 1000);
     });
